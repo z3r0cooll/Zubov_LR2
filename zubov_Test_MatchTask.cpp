@@ -44,16 +44,30 @@ void testUserInput_Letter() {
     // Сравнение ожидаемого результата с полученным
     ASSERT_EQUAL(expected, actual);
 }
+// Тест, проверяющий отсев отрицательных значений
+void testUserInput_NegativeValue() {
+    // Исходные данные
+    string str = "-5"; // Строка с отрицательным значением
+
+    // Ожидаемое значение результата работы функции UserInput
+    bool expected = false;
+
+    // Получение значения с помощью тестируемого метода
+    bool actual = UserInput(str);
+
+    // Сравнение ожидаемого результата с полученным
+    ASSERT_EQUAL(expected, actual);
+}
 int main(){
 /**/ // Создаем тестовый набор 
 suite s;
 // Добавляем тестовую функцию в набор
 s.push_back(CUTE(testCalcRectangleArea));
- s.push_back(CUTE(testUserInput_Empty)); // Добавляем тест для пустых значений
- s.push_back(CUTE(testUserInput_Letter)); // Тест для нецифровых символов
-
+s.push_back(CUTE(testUserInput_Empty)); // Добавляем тест для пустых значений
+s.push_back(CUTE(testUserInput_Letter)); // Тест для нецифровых символов
+s.push_back(CUTE(testUserInput_NegativeValue)); // Тест для отрицательных значений
 // Создаем listener и runner
 ide_listener<> listener;
-makeRunner(listener)(s, "Test CalcRectangleArea");
+makeRunner(listener)(s, "all Rectangle Tests");
 return 0;
 }
