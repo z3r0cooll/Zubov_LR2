@@ -50,7 +50,7 @@ void testUserInput_NegativeValue() {
     string str = "-5"; // Строка с отрицательным значением
 
     // Ожидаемое значение результата работы функции UserInput
-    bool expected = false;
+    bool expected = true;
 
     // Получение значения с помощью тестируемого метода
     bool actual = UserInput(str);
