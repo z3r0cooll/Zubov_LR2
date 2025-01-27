@@ -13,15 +13,32 @@ int expected = 15;
 // получение значения с помощью тестируемого метода
 int actual = CalcRectangleArea(a, b);
 // сравнение ожидаемого результата с полученным 
+
 ASSERT_EQUAL(expected, actual);
+}
+// Тест, проверяющий отсев пустых значений
+void testUserInput_Empty() {
+    // Исходные данные
+    string str = ""; // Пустая строка
+
+    // Ожидаемое значение результата работы функции UserInput
+    bool expected = false;
+
+    // Получение значения с помощью тестируемого метода
+    bool actual = UserInput(str);
+
+    // Сравнение ожидаемого результата с полученным
+    ASSERT_EQUAL(expected, actual);
 }
 int main(){
 /**/ // Создаем тестовый набор 
 suite s;
 // Добавляем тестовую функцию в набор
 s.push_back(CUTE(testCalcRectangleArea));
+ s.push_back(CUTE(testUserInput_Empty)); // Добавляем тест для пустых значений
+
 // Создаем listener и runner
-ide_listeners listener:
+ide_listener<> listener;
 makeRunner(listener)(s, "Test CalcRectangleArea");
 return 0;
 }

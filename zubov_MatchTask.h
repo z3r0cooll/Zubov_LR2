@@ -6,14 +6,14 @@ using namespace std;
 
  //проверка корректности вводимых данных 8 
  bool UserInput(string input) { 
-    9 //если строка пустая - ввод некорректен 10 
+//если строка пустая - ввод некорректен 10 
     if (input.empty()) return false;
 //попытаться 
 try {
 //преобразование введенного значения в тип 
 int number = stoi(input);
 }
-catch (…) //если возникла ошибка в блоке try
+catch (...) //если возникла ошибка в блоке try
  { return false; } 
  return true;
  }
