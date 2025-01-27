@@ -1,7 +1,9 @@
 #ifndef _zubov_MATHTASK_H_
 #define _zubov_MATHTASK_H_
+
 #include <cstring>
 using namespace std;
+
  //проверка корректности вводимых данных 8 
  bool UserInput(string input) { 
     9 //если строка пустая - ввод некорректен 10 
@@ -9,7 +11,7 @@ using namespace std;
 //попытаться 
 try {
 //преобразование введенного значения в тип 
-int int number = stoi(input);
+int number = stoi(input);
 }
 catch (…) //если возникла ошибка в блоке try
  { return false; } 
