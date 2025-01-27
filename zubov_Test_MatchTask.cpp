@@ -30,12 +30,27 @@ void testUserInput_Empty() {
     // Сравнение ожидаемого результата с полученным
     ASSERT_EQUAL(expected, actual);
 }
+// Тест, проверяющий отсев нецифровых символов
+void testUserInput_Letter() {
+    // Исходные данные
+    string str = "a"; // Строка с нецифровым символом
+
+    // Ожидаемое значение результата работы функции UserInput
+    bool expected = false;
+
+    // Получение значения с помощью тестируемого метода
+    bool actual = UserInput(str);
+
+    // Сравнение ожидаемого результата с полученным
+    ASSERT_EQUAL(expected, actual);
+}
 int main(){
 /**/ // Создаем тестовый набор 
 suite s;
 // Добавляем тестовую функцию в набор
 s.push_back(CUTE(testCalcRectangleArea));
  s.push_back(CUTE(testUserInput_Empty)); // Добавляем тест для пустых значений
+ s.push_back(CUTE(testUserInput_Letter)); // Тест для нецифровых символов
 
 // Создаем listener и runner
 ide_listener<> listener;
